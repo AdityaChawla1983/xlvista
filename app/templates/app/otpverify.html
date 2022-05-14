@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+    <!--<link href="{% static '/img/favicon.ico' %}" rel="icon">-->
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static '/fonts/material-icon/css1/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static '/css1/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="login">
+             <!--<img src="{% static 'images/signup-bg.jpg' %}" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+
+                    <form method="POST" id="login-form" action="{% url 'OTP' %}" class="login-form">
+                        {%  csrf_token %}
+                        <h2 class="form-title">OTP VERIFICATION</h2>
+
+                        
+                            <div class="form-group">
+                              <center>
+                                  {% if msg %}
+                                  <h4 style="color:red">{{msg}}</h4>
+                                  {% endif %}
+                              </center>  
+                            </div>
+                       
+                        <div class="form-group">
+                            <div class="form-group">
+                                <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" value="{{email}}" readonly/>
+                            </div>
+                            <label>Your OTP</label>
+                            <input type="text" class="form-input" name="OTP" id="OTP" placeholder="Enter Your OTP"/>
+                        </div>
+                       
+                        
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="verify"/>
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                        Create Your account <a href="Singup" class="loginhere-link">Singup here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static '/js1/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
